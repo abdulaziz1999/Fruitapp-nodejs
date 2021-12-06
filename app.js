@@ -1,16 +1,16 @@
-const { index, store, update, destroy} = require('./fruitController')
+const { index, store, update, destroy} = require('./src/controllers/fruitController')
 
 //Menampilkan All Buah
 index()
 
 //Menampilkan Buah dengan id tertentu
-index(1)
+// index(1)
 
 //Menambahkan Buah baru
-store('jambu')
+// store('jambu')
 
 //Mengupdate Buah dengan id tertentu
-update(0,"rambutan")
+// update(0,"rambutan")
 
 //Menghapus Buah dengan id tertentu
-destroy(2)
+// destroy(2)

@@ -1,4 +1,4 @@
-const fruits = require('./data.js')
+const fruits = require('./../models/data.js')
 
 const index = (id) => {
     if(id){
