@@ -1,3 +1,3 @@
-const fruits = ['banana','anggur','kentang','apel']
+const fruits = ['kurma','anggur','kentang','apel']
 
 module.exports = fruits
