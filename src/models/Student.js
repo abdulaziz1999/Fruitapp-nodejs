@@ -14,26 +14,20 @@ class Student {
     }
 
     static async create(body){
-        const id = await new Promise((resolve, reject)=> {
-            const sql = `INSERT INTO ${this.tableName} SET ?`
-            db.query(sql, body, (err, result) => {
-                resolve(result.insertId)
-            })
-        })
-        return new Promise((resolve, reject)=> {
-            const sql = `SELECT * FROM ${this.tableName} WHERE id = ?`
-            db.query(sql, id, (err, results) => {
-                resolve(results)
-            })
-        })
+        const sql = `INSERT INTO ${this.tableName} SET ?`
+        return Student.query(sql, body, (results) => results.insertId)
     }
 
-    static async update(body){
-        
+    static async update(id, body){
+        const sql = `UPDATE ${this.tableName} SET ? WHERE id = ${id}`
+        await Student.query(sql, body, (results) => results)
+
+        return Student.find(id)
     }
 
-    static async destroy(body){
-        
+    static async destroy(id){
+        const sql = `DELETE FROM ${this.tableName} WHERE id = ?`
+        await Student.query(sql, id, (results) => results)
     }
 
     static query(sql, body, callback){
